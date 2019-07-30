@@ -11,14 +11,14 @@ storiesOf('ThemedAnalogClock', module)
   .add('using the light theme', () => {
     return (
       <div style={style}>
-        <ThemedAnalogClock useDarkTheme={false} />
+        <ThemedAnalogClock title="light theme" useDarkTheme={false} />
       </div>
     );
   })
   .add('using the dark theme', () => {
     return (
       <div style={style}>
-        <ThemedAnalogClock useDarkTheme={true} />
+        <ThemedAnalogClock title="dark theme" useDarkTheme={true} />
       </div>
     );
   })

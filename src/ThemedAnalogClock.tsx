@@ -3,13 +3,8 @@ import * as React from 'react';
 import AnalogClock from './AnalogClock';
 
 const styles: { [key: string]: React.CSSProperties } = {
-  commonWithoutTitle: {
+  container: {
     height: '100%',
-    width: '100%',
-    textAlign: 'center'
-  },
-  commonWithTitle: {
-    height: 'calc(100% - 1.2em)',
     width: '100%',
     textAlign: 'center'
   },
@@ -23,8 +18,8 @@ const styles: { [key: string]: React.CSSProperties } = {
   }
 };
 
-const getTheme = (useDarkTheme: boolean, hasTitle: boolean): React.CSSProperties => ({
-  ...(hasTitle ? styles.commonWithTitle : styles.commonWithoutTitle),
+const getTheme = (useDarkTheme: boolean): React.CSSProperties => ({
+  ...styles.container,
   ...(useDarkTheme ? styles.darkTheme : styles.lightTheme)
 });
 
@@ -88,18 +83,39 @@ const ThemedAnalogClock = ({ date, size, timezoneName, title, useDarkTheme }: Th
   title = title ? title.replace('{}', resolvedTimezoneName) : undefined;
 
   return (
-    <div style={getTheme(useDarkTheme, title !== undefined)}>
+    <div style={getTheme(useDarkTheme)}>
       <AnalogClock
         hours={hours}
         minutes={minutes}
         seconds={seconds}
         displayAm={displayAm}
         useDarkTheme={useDarkTheme}
-        size={size}
+        width={size}
+        height={getHeight(size, title !== undefined)}
       />
       <div>{title}</div>
     </div>
   );
+};
+
+const getHeight = (size: number | string | undefined, hasTitle: boolean): number | string | undefined => {
+  if (size === undefined) {
+    if (hasTitle === false) {
+      return undefined;
+    }
+
+    return `calc(100% - 1.3em)`;
+  }
+
+  if (hasTitle === false) {
+    return size;
+  }
+
+  if (typeof size === 'number') {
+    return `calc(${size}px - 1.3em)`;
+  }
+
+  return `calc(${size} - 1.3em)`;
 };
 
 export interface ThemedAnalogClockProps {

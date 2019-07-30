@@ -22,10 +22,11 @@ interface Theme {
 const AnalogClock = ({
   hours,
   displayAm,
+  height = '100%',
   minutes,
   seconds,
-  size = '100%',
-  useDarkTheme
+  useDarkTheme,
+  width = '100%'
 }: RenderAnalogClockProps): JSX.Element => {
   const imgEl = React.useRef<SVGSVGElement>(null);
   const [isTimeSet, setTimeSet] = React.useState(false);
@@ -120,15 +121,15 @@ const AnalogClock = ({
       xmlnsXlink="http://www.w3.org/1999/xlink"
       x={0}
       y={0}
-      width={size}
-      height={size}
       viewBox="0 0 384 384"
       preserveAspectRatio="xMidYMid meet"
       strokeWidth={1}
       strokeLinecap="round"
       style={{
         display: isTimeSet ? 'inline-block' : 'none',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        width,
+        height
       }}
     >
       <g id="iconic-clock-frame">
@@ -248,10 +249,11 @@ const AnalogClock = ({
 interface RenderAnalogClockProps {
   hours: number;
   displayAm: boolean;
+  height?: number | string;
   minutes: number;
   seconds: number;
-  size?: number | string;
   useDarkTheme: boolean;
+  width?: number | string;
 }
 
 export default AnalogClock;

@@ -17,7 +17,7 @@ The component accepts the props defined bellow in the table.
 | Name         | Type     | Required | Default            | Description                                                             |
 |--------------|----------|----------|--------------------|-------------------------------------------------------------------------|
 | date         | Date     | no       | undefined          | Force the clock to start displaying the time with the time of this date |
-| size         | number \| string   | no                 | 384|The size of the clock                                               |
+| size         | number \| string | no             | 100% | The size of the clock                                                   |
 | timezoneName | string   | no       | browser's timezone | The timezone for which is displayed teh time (if date is not set)       |
 | title        | string   | no       | undefined          | The text displayed bellow the clock                                     |
 | useDarkTheme | boolean  | no       | false              | Define which theme is used (light or dark)                              |
@@ -72,3 +72,7 @@ export default App;
 ### 1.0.0
 
 - themed-analog-clock is made publicly available
+
+### 1.0.1
+
+- Fixed the bug related to displaying in dark mode the text outside of the dark background
