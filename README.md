@@ -14,13 +14,14 @@ The component accepts the props defined bellow in the table.
 
 ### Props accepted by ThemedAnalogClock
 
-| Name         | Type     | Required | Default            | Description                                                             |
-|--------------|----------|----------|--------------------|-------------------------------------------------------------------------|
-| date         | Date     | no       | undefined          | Force the clock to start displaying the time with the time of this date |
-| description  | string   | no       | undefined          | The text displayed bellow the clock                                     |
+| Name         | Type          | Required | Default            | Description                                                             |
+|--------------|---------------|----------|--------------------|-------------------------------------------------------------------------|
+| date         | Date          | no       | undefined          | Force the clock to start displaying the time with the time of this date |
+| description  | string        | no       | undefined          | The text displayed bellow the clock                                     |
 | size         | number \| string   | no                 | 100%|The size of the clock                                              |
-| timezoneName | string   | no       | browser's timezone | The timezone for which is displayed teh time (if date is not set)       |
-| useDarkTheme | boolean  | no       | false              | Define which theme is used (light or dark)                              |
+| style        | CSSProperties | no       | {}                 | The style for root element (overwrite any internal style)               |
+| timezoneName | string        | no       | browser's timezone | The timezone for which is displayed teh time (if date is not set)       |
+| useDarkTheme | boolean       | no       | false              | Define which theme is used (light or dark)                              |
 
 Note: date is thought to be used only for testing and in storybook.
 
@@ -81,3 +82,7 @@ export default App;
 ### 2.0.0
 
 - Breaking change: renamed prop title to description
+
+### 2.0.1
+
+- Added a prop style to style the root element (use it to customize the look of the current theme)

@@ -18,9 +18,10 @@ const styles: { [key: string]: React.CSSProperties } = {
   }
 };
 
-const getTheme = (useDarkTheme: boolean): React.CSSProperties => ({
+const getTheme = (useDarkTheme: boolean, style: React.CSSProperties = {}): React.CSSProperties => ({
   ...styles.container,
-  ...(useDarkTheme ? styles.darkTheme : styles.lightTheme)
+  ...(useDarkTheme ? styles.darkTheme : styles.lightTheme),
+  ...style
 });
 
 let timeoutCall: NodeJS.Timeout | undefined = undefined;
@@ -29,6 +30,7 @@ const ThemedAnalogClock = ({
   date,
   description,
   size,
+  style,
   timezoneName,
   useDarkTheme
 }: ThemedAnalogClockProps): JSX.Element => {
@@ -89,7 +91,7 @@ const ThemedAnalogClock = ({
   description = description ? description.replace('{}', resolvedTimezoneName) : undefined;
 
   return (
-    <div style={getTheme(useDarkTheme)}>
+    <div style={getTheme(useDarkTheme, style)}>
       <AnalogClock
         hours={hours}
         minutes={minutes}
@@ -128,6 +130,7 @@ export interface ThemedAnalogClockProps {
   date?: Date;
   description?: string;
   size?: number | string;
+  style?: React.CSSProperties;
   timezoneName?: string;
   useDarkTheme?: boolean;
 }
