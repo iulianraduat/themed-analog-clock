@@ -17,9 +17,9 @@ The component accepts the props defined bellow in the table.
 | Name         | Type     | Required | Default            | Description                                                             |
 |--------------|----------|----------|--------------------|-------------------------------------------------------------------------|
 | date         | Date     | no       | undefined          | Force the clock to start displaying the time with the time of this date |
-| size         | number \| string | no             | 100% | The size of the clock                                                   |
+| description  | string   | no       | undefined          | The text displayed bellow the clock                                     |
+| size         | number \| string   | no                 | 100%|The size of the clock                                              |
 | timezoneName | string   | no       | browser's timezone | The timezone for which is displayed teh time (if date is not set)       |
-| title        | string   | no       | undefined          | The text displayed bellow the clock                                     |
 | useDarkTheme | boolean  | no       | false              | Define which theme is used (light or dark)                              |
 
 Note: date is thought to be used only for testing and in storybook.
@@ -31,6 +31,7 @@ Note: date is thought to be used only for testing and in storybook.
 | ThemedAnalogClock _uses_ | React  |
 |-------------------------:|:------:|
 |                    1.0.x | 16.8.6 |
+|                    2.0.x | 16.8.6 |
 
 ### About versioning schema used for ThemedAnalogClock
 
@@ -76,3 +77,7 @@ export default App;
 ### 1.0.1
 
 - Fixed the bug related to displaying in dark mode the text outside of the dark background
+
+### 2.0.0
+
+- Breaking change: renamed prop title to description

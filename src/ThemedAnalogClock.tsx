@@ -25,7 +25,13 @@ const getTheme = (useDarkTheme: boolean): React.CSSProperties => ({
 
 let timeoutCall: NodeJS.Timeout | undefined = undefined;
 
-const ThemedAnalogClock = ({ date, size, timezoneName, title, useDarkTheme }: ThemedAnalogClockProps): JSX.Element => {
+const ThemedAnalogClock = ({
+  date,
+  description,
+  size,
+  timezoneName,
+  useDarkTheme
+}: ThemedAnalogClockProps): JSX.Element => {
   const [resolvedTimezoneName, hours, minutes, seconds, isAm] = React.useMemo(() => {
     const resolvedTimezoneName = timezoneName ? timezoneName : Intl.DateTimeFormat().resolvedOptions().timeZone;
 
@@ -80,7 +86,7 @@ const ThemedAnalogClock = ({ date, size, timezoneName, title, useDarkTheme }: Th
   }, [atEach12, isAm]);
 
   useDarkTheme = useDarkTheme === true;
-  title = title ? title.replace('{}', resolvedTimezoneName) : undefined;
+  description = description ? description.replace('{}', resolvedTimezoneName) : undefined;
 
   return (
     <div style={getTheme(useDarkTheme)}>
@@ -91,23 +97,23 @@ const ThemedAnalogClock = ({ date, size, timezoneName, title, useDarkTheme }: Th
         displayAm={displayAm}
         useDarkTheme={useDarkTheme}
         width={size}
-        height={getHeight(size, title !== undefined)}
+        height={getHeight(size, description !== undefined)}
       />
-      <div>{title}</div>
+      <div>{description}</div>
     </div>
   );
 };
 
-const getHeight = (size: number | string | undefined, hasTitle: boolean): number | string | undefined => {
+const getHeight = (size: number | string | undefined, hasDescription: boolean): number | string | undefined => {
   if (size === undefined) {
-    if (hasTitle === false) {
+    if (hasDescription === false) {
       return undefined;
     }
 
     return `calc(100% - 1.3em)`;
   }
 
-  if (hasTitle === false) {
+  if (hasDescription === false) {
     return size;
   }
 
@@ -120,9 +126,9 @@ const getHeight = (size: number | string | undefined, hasTitle: boolean): number
 
 export interface ThemedAnalogClockProps {
   date?: Date;
+  description?: string;
   size?: number | string;
   timezoneName?: string;
-  title?: string;
   useDarkTheme?: boolean;
 }
 

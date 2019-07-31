@@ -2,9 +2,9 @@ import * as React from 'react';
 
 export interface ThemedAnalogClockProps extends React.Props<ThemedAnalogClock> {
   date?: Date;
+  description?: string;
   size?: number | string;
   timezoneName?: string;
-  title?: string;
   useDarkTheme?: boolean;
 }
 
