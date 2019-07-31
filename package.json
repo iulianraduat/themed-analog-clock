@@ -1,6 +1,6 @@
 {
   "name": "themed-analog-clock",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "An analog clock with a dark and a light theme",
   "main": "lib/index.js",
   "sideEffects": false,

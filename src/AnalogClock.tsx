@@ -138,10 +138,10 @@ const AnalogClock = ({
           x="192"
           y="220"
           fill={theme.handColor}
-          dominant-baseline="middle"
-          text-anchor="middle"
-          font-family="monospace"
-          font-size="120%"
+          dominantBaseline="middle"
+          textAnchor="middle"
+          fontFamily="monospace"
+          fontSize="120%"
         >
           {displayAm ? 'AM' : 'PM'}
         </text>

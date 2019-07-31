@@ -86,3 +86,7 @@ export default App;
 ### 2.0.1
 
 - Added a prop style to style the root element (use it to customize the look of the current theme)
+
+### 2.0.2
+
+- Fixed the name of some svg elements
