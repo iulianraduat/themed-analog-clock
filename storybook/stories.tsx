@@ -8,6 +8,7 @@ const style: React.CSSProperties = {
 };
 
 storiesOf('ThemedAnalogClock', module)
+  .addParameters({ options: { showPanel: false } })
   .add('using the light theme', () => {
     return (
       <div style={style}>
