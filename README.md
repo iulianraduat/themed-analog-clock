@@ -33,6 +33,7 @@ Note: date is thought to be used only for testing and in storybook.
 |-------------------------:|:------:|
 |                    1.0.x | 16.8.6 |
 |                    2.0.x | 16.8.6 |
+|                    2.1.x | 16.9.0 |
 
 ### About versioning schema used for ThemedAnalogClock
 
@@ -90,3 +91,7 @@ export default App;
 ### 2.0.2
 
 - Fixed the name of some svg elements
+
+### 2.1.0
+
+- Upgraded packages
