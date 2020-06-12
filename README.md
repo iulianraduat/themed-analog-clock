@@ -1,4 +1,4 @@
-# themed-analog-clock ![Weekly downloads](https://img.shields.io/npm/dw/themed-analog-clock 'Weekly downloads')
+# themed-analog-clock ![Weekly downloads](https://img.shields.io/npm/dw/themed-analog-clock "Weekly downloads")
 
 An analog clock with a dark and a light theme
 
@@ -48,14 +48,18 @@ Note: date is thought to be used only for testing and in storybook.
 Displaying an analog clock in a dark theme:
 
 ```js
-import * as React from 'react';
-import ThemedAnalogClock from 'themed-analog-clock';
+import * as React from "react";
+import ThemedAnalogClock from "themed-analog-clock";
 
 class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <ThemedAnalogClock title="The time now in New York" timezoneName="America/New_York" useDarkTheme={true} />
+        <ThemedAnalogClock
+          title="The time now in New York"
+          timezoneName="America/New_York"
+          useDarkTheme={true}
+        />
       </div>
     );
   }
@@ -96,3 +100,7 @@ export default App;
 
 - Updated packages
 - Moved from npm to yarn
+
+### 2.1.2
+
+- Updated packages
