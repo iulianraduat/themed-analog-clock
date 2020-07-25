@@ -104,3 +104,7 @@ export default App;
 ### 2.1.2
 
 - Updated packages
+
+### 2.1.3
+
+- Updated packages
