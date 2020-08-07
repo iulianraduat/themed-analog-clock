@@ -1,1 +1,1 @@
-export * from './ThemedAnalogClock';
+export { default, ThemedAnalogClockProps } from "./ThemedAnalogClock";
