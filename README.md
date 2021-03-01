@@ -1,4 +1,4 @@
-# themed-analog-clock ![Weekly downloads](https://img.shields.io/npm/dw/themed-analog-clock "Weekly downloads")
+# themed-analog-clock ![Weekly downloads](https://img.shields.io/npm/dw/themed-analog-clock 'Weekly downloads')
 
 An analog clock with a dark and a light theme
 
@@ -29,11 +29,12 @@ Note: date is thought to be used only for testing and in storybook.
 
 ## Versions
 
-| ThemedAnalogClock _uses_ | React  |
-| -----------------------: | :----: |
-|                    1.0.x | 16.8.6 |
-|                    2.0.x | 16.8.6 |
-|                    2.1.x | 16.9.0 |
+| ThemedAnalogClock _uses_ |      React       |
+| -----------------------: | :--------------: |
+|                    1.0.x |      16.8.6      |
+|                    2.0.x |      16.8.6      |
+|                    2.1.x |      16.9.0      |
+|                    2.2.x | 16.9.0 or 17.0.0 |
 
 ### About versioning schema used for ThemedAnalogClock
 
@@ -48,18 +49,14 @@ Note: date is thought to be used only for testing and in storybook.
 Displaying an analog clock in a dark theme:
 
 ```js
-import * as React from "react";
-import ThemedAnalogClock from "themed-analog-clock";
+import * as React from 'react';
+import ThemedAnalogClock from 'themed-analog-clock';
 
 class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <ThemedAnalogClock
-          description="The time now in New York"
-          timezoneName="America/New_York"
-          useDarkTheme={true}
-        />
+        <ThemedAnalogClock description="The time now in New York" timezoneName="America/New_York" useDarkTheme={true} />
       </div>
     );
   }
@@ -112,3 +109,8 @@ export default App;
 ### 2.1.4
 
 - Fixed crash produced by "export \* from"
+
+### 2.2.0
+
+- Accepting React 17 as peerDependencies
+- Fixed security warnings
