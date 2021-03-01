@@ -62,6 +62,10 @@ object-assign
 
 //! moment-timezone.js
 
+//! moment.js
+
+//! moment.js locale configuration
+
 //! stable.js 0.1.8, https://github.com/Two-Screen/stable
 
 //! version : 0.5.33
