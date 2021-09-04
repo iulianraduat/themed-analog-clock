@@ -114,3 +114,7 @@ export default App;
 
 - Accepting React 17 as peerDependencies
 - Fixed security warnings
+
+### 2.2.1
+
+- Updated the packages
