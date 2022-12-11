@@ -35,6 +35,7 @@ Note: date is thought to be used only for testing and in storybook.
 |                    2.0.x |      16.8.6      |
 |                    2.1.x |      16.9.0      |
 |                    2.2.x | 16.9.0 or 17.0.0 |
+|                    3.0.x |     >=18.0.0     |
 
 ### About versioning schema used for ThemedAnalogClock
 
@@ -56,7 +57,11 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <ThemedAnalogClock description="The time now in New York" timezoneName="America/New_York" useDarkTheme={true} />
+        <ThemedAnalogClock
+          description="The time now in New York"
+          timezoneName="America/New_York"
+          useDarkTheme={true}
+        />
       </div>
     );
   }
@@ -118,3 +123,7 @@ export default App;
 ### 2.2.1
 
 - Updated the packages
+
+### 3.0.0
+
+- Supports minimum React 18

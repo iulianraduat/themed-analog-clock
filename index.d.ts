@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export interface ThemedAnalogClockProps extends React.Props<ThemedAnalogClock> {
+export interface ThemedAnalogClockProps {
   date?: Date;
   description?: string;
   size?: number | string;
