@@ -127,3 +127,7 @@ export default App;
 ### 3.0.0
 
 - Supports minimum React 18
+
+### 3.0.1
+
+- Updated the packages

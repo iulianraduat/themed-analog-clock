@@ -1,27 +1,30 @@
-import * as moment from 'moment-timezone';
-import * as React from 'react';
+import moment from 'moment-timezone';
+import React from 'react';
 import AnalogClock from './AnalogClock';
 
 const styles: { [key: string]: React.CSSProperties } = {
   container: {
     height: '100%',
     width: '100%',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   darkTheme: {
     backgroundColor: '#222222',
-    color: '#7fffd4'
+    color: '#7fffd4',
   },
   lightTheme: {
     backgroundColor: '#ffffff',
-    color: '#000000'
-  }
+    color: '#000000',
+  },
 };
 
-const getTheme = (useDarkTheme: boolean, style: React.CSSProperties = {}): React.CSSProperties => ({
+const getTheme = (
+  useDarkTheme: boolean,
+  style: React.CSSProperties = {}
+): React.CSSProperties => ({
   ...styles.container,
   ...(useDarkTheme ? styles.darkTheme : styles.lightTheme),
-  ...style
+  ...style,
 });
 
 let timeoutCall: NodeJS.Timeout | undefined = undefined;
@@ -32,19 +35,22 @@ const ThemedAnalogClock = ({
   size,
   style,
   timezoneName,
-  useDarkTheme
+  useDarkTheme,
 }: ThemedAnalogClockProps): JSX.Element => {
-  const [resolvedTimezoneName, hours, minutes, seconds, isAm] = React.useMemo(() => {
-    const resolvedTimezoneName = timezoneName ? timezoneName : Intl.DateTimeFormat().resolvedOptions().timeZone;
+  const [resolvedTimezoneName, hours, minutes, seconds, isAm] =
+    React.useMemo(() => {
+      const resolvedTimezoneName = timezoneName
+        ? timezoneName
+        : Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-    const dateInTimezone = moment().tz(resolvedTimezoneName);
-    const hours = date ? date.getHours() : dateInTimezone.get('hours') % 12;
-    const minutes = date ? date.getMinutes() : dateInTimezone.get('minutes');
-    const seconds = date ? date.getSeconds() : dateInTimezone.get('seconds');
-    const isAm = (date ? date.getHours() : dateInTimezone.get('hours')) < 12;
+      const dateInTimezone = moment().tz(resolvedTimezoneName);
+      const hours = date ? date.getHours() : dateInTimezone.get('hours') % 12;
+      const minutes = date ? date.getMinutes() : dateInTimezone.get('minutes');
+      const seconds = date ? date.getSeconds() : dateInTimezone.get('seconds');
+      const isAm = (date ? date.getHours() : dateInTimezone.get('hours')) < 12;
 
-    return [resolvedTimezoneName, hours, minutes, seconds, isAm];
-  }, [date, timezoneName]);
+      return [resolvedTimezoneName, hours, minutes, seconds, isAm];
+    }, [date, timezoneName]);
   const [displayAm, setDisplayAm] = React.useState<boolean>(isAm);
 
   const atEach12 = React.useCallback(() => {
@@ -70,7 +76,9 @@ const ThemedAnalogClock = ({
       clearTimeout(timeoutCall);
     }
     timeoutCall = setTimeout(() => {
-      const h = date ? (date.getHours() + Math.ceil(wait / 3600000)) % 24 : new Date().getHours();
+      const h = date
+        ? (date.getHours() + Math.ceil(wait / 3600000)) % 24
+        : new Date().getHours();
       setDisplayAm(h < 12);
       atEach12();
     }, wait);
@@ -88,7 +96,9 @@ const ThemedAnalogClock = ({
   }, [atEach12, isAm]);
 
   useDarkTheme = useDarkTheme === true;
-  description = description ? description.replace('{}', resolvedTimezoneName) : undefined;
+  description = description
+    ? description.replace('{}', resolvedTimezoneName)
+    : undefined;
 
   return (
     <div style={getTheme(useDarkTheme, style)}>
@@ -106,7 +116,10 @@ const ThemedAnalogClock = ({
   );
 };
 
-const getHeight = (size: number | string | undefined, hasDescription: boolean): number | string | undefined => {
+const getHeight = (
+  size: number | string | undefined,
+  hasDescription: boolean
+): number | string | undefined => {
   if (size === undefined) {
     if (hasDescription === false) {
       return undefined;

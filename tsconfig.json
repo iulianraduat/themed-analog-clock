@@ -12,8 +12,14 @@
     "jsx": "react",
     "skipLibCheck": true,
     "typeRoots": ["index.d.ts", "node_modules/@types"],
-    "lib": ["es5", "es6", "dom"]
+    "lib": ["es5", "es6", "dom"],
+    "esModuleInterop": true
   },
-  "include": ["./src/**/*.tsx", "./src/**/*.ts"],
+  "include": [
+    "./src/**/*.tsx",
+    "./src/**/*.ts",
+    "./storybook/**/*.tsx",
+    "./storybook/**/*.ts"
+  ],
   "exclude": ["node_modules"]
 }
